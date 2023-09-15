@@ -99,17 +99,6 @@
                     </td>
                 </tr>
             @endforeach
-            {{-- <tr>
-                <td style="color: rgb(17 24 39);">Total</td>
-                <td></td>
-                <td style="text-align: right; color: rgb(17 24 39);">
-                    @foreach ($report->details as $detail)
-                        <p>
-                            <sup>Rp</sup> {{ moneyFormat($detail->transaction->grand_total) }}
-                        </p>
-                    @endforeach
-                </td>
-            </tr> --}}
         </tbody>
     </table>
 </body>

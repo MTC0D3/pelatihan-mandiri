@@ -6,15 +6,15 @@
             <x-input-search placeholder="Search pendaftaran.." :url="route('member.pendaftaran.index')" />
         </div>
         <div class="col-12">
-            <x-button-create title="ADD NEW PENDAFTARAN" :url="route('member.pendaftaran.create')" />
-            <x-card title="LIST PENDAFTARAN">
+            <x-button-create title="TAMBAH PENDAFTARAN" :url="route('member.pendaftaran.create')" />
+            <x-card title="DAFTAR PENDAFTARAN">
                 <x-table>
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th style="width: 10px">NO</th>
+                            <th>NIK</th>
                             <th>NAME</th>
                             <th>NIP</th>
-                            <th>NIK</th>
                             <th>INSTANSI</th>
                             <th>PHONE</th>
                             <th>PELATIHAN</th>
@@ -22,13 +22,13 @@
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         @foreach ($pendaftarans as $i => $pendaftaran)
                             <tr>
                                 <td>{{ $pendaftarans->firstItem() + $i }}</td>
+                                <td>{{ $pendaftaran->nik }}</td>
                                 <td>{{ $pendaftaran->name }}</td>
                                 <td>{{ $pendaftaran->nip }}</td>
-                                <td>{{ auth()->user()->nik }}</td>
                                 <td>{{ $pendaftaran->agency }}</td>
                                 <td>{{ $pendaftaran->phone }}</td>
                                 <td>{{ $pendaftaran->pelatihan->name }}</td>
@@ -42,8 +42,13 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <x-button-show :url="route('member.pendaftaran.show', $pendaftaran->id)" />
-                                    <x-button-delete :id="$pendaftaran->id" :url="route('member.pendaftaran.destroy', $pendaftaran->id)" />
+                                    <div
+                                        class="{{ $pendaftaran->status == 'Terverifikasi' ? '' : 'row justify-content-between' }}">
+                                        <x-button-show :url="route('member.pendaftaran.show', $pendaftaran->id)" />
+                                        @if ($pendaftaran->status != 'Terverifikasi')
+                                            <x-button-delete :id="$pendaftaran->id" :url="route('member.pendaftaran.destroy', $pendaftaran->id)" />
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -50,7 +50,7 @@ class PelatihanController extends Controller
         // tampung request file image kedalam variable $image.
         $image = $request->file('image');
         // request yang telah kita tampung kedalam variabel, kita masukan kedalam folder public/categories.
-        $image?->storeAs('public/pelatihans', $image->hashName());
+        $image->storeAs('public/pelatihans', $image->hashName());
 
         // masukan data baru category kedalam database.
         Pelatihan::create([
@@ -58,7 +58,7 @@ class PelatihanController extends Controller
             'activity' => $request->activity,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'image' => $image?->hashName(),
+            'image' => $image->hashName(),
         ]);
 
         // kembali kehalaman admin/category/index dengan membawa toastr.

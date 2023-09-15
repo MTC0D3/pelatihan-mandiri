@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use PDF;
 use Carbon\Carbon;
-use App\Models\Transaction;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Models\Pelatihan;
 use App\Models\Pendaftaran;
-use App\Models\TransactionDetail;
+use Illuminate\Http\Request;
+use App\Exports\ExportPendaftaran;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
@@ -17,7 +18,10 @@ class ReportController extends Controller
         $fromDate = $request->from_date;
         $toDate = $request->to_date;
 
-        return view('admin.report.index', compact('fromDate', 'toDate'));
+        return view('admin.report.index',[
+            'fromDate' => $fromDate,
+            'toDate' => $toDate,
+        ]);
     }
 
     public function filter(Request $request)
@@ -25,26 +29,17 @@ class ReportController extends Controller
         $fromDate = $request->from_date;
         $toDate = $request->to_date;
 
-        $reports = Pendaftaran::with(['pelatihan', 'user'])
+        $data = Pendaftaran::with(['pelatihan', 'user'])
             ->whereDate('created_at', '>=', $fromDate)
             ->whereDate('created_at', '<=', $toDate)
             ->where('status', 'Terverifikasi')
             ->get();
 
-        return view('admin.report.index', compact('fromDate', 'toDate', 'reports'));
+        return view('admin.report.index', compact('fromDate', 'toDate', 'data'));
     }
 
-    public function pdf($fromDate, $toDate)
+    public function export_excel($fromDate, $toDate)
     {
-        $reports = Pendaftaran::with(['pelatihan', 'user'])
-            ->whereDate('created_at', '>=', $fromDate)
-            ->whereDate('created_at', '<=', $toDate)
-            ->where('status', 'Terverifikasi')
-            ->get();
-
-
-        $pdf = PDF::loadView('admin.report.report', compact('fromDate', 'toDate', 'reports'))->setPaper('a4', 'landscape');
-
-        return $pdf->stream('Laporan Data Pendaftaran - '.Carbon::parse($fromDate)->format('d M Y').' - '.Carbon::parse($toDate)->format('d M Y').'.pdf');
+        return Excel::download(new ExportPendaftaran($fromDate, $toDate), 'Laporan Data Pendaftaran - '.Carbon::parse($fromDate)->format('d M Y').' - '.Carbon::parse($toDate)->format('d M Y').'.xlsx');
     }
 }

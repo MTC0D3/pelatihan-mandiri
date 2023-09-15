@@ -5,8 +5,7 @@
         <div class="col-10">
             <form action="{{ route('admin.pelatihan.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <x-card-form title="CREATE NEW PELATIHAN" url="{{ route('admin.pelatihan.index') }}"
-                    titleBtn="Create Pelatihan">
+                <x-card-form title="CREATE NEW PELATIHAN" url="{{ route('admin.pelatihan.index') }}" titleBtn="Buat Pelatihan">
                     <x-input title="Nama Pelatihan" type="text" name="name" placeholder="Enter pelatihan title"
                         :value="old('name')" />
                     <x-select title="Jenis Kegiatan" name="activity">

@@ -7,6 +7,20 @@
         <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="mb-3 input-group">
+                <input type="text" class="form-control @error('nik') is-invalid @enderror" placeholder="NIK" name="nik"
+                    value="{{ old('nik') }}">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-id-card"></span>
+                    </div>
+                </div>
+                @error('nik')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-3 input-group">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Full Name"
                     name="name" value="{{ old('name') }}">
                 <div class="input-group-append">
@@ -21,14 +35,14 @@
                 @enderror
             </div>
             <div class="mb-3 input-group">
-                <input type="text" class="form-control @error('nik') is-invalid @enderror" placeholder="NIK"
-                    name="nik" value="{{ old('nik') }}">
+                <input type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone"
+                    name="phone" value="{{ old('phone') }}">
                 <div class="input-group-append">
                     <div class="input-group-text">
-                        <span class="fas fa-user"></span>
+                        <span class="fas fa-phone"></span>
                     </div>
                 </div>
-                @error('nik')
+                @error('phone')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

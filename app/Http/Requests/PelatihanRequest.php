@@ -31,7 +31,7 @@ class PelatihanRequest extends FormRequest
       'activity' => 'required',
       'start_date' => 'required|date',
       'end_date' => 'required|date',
-      'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+      'image' => 'required|mimes:png,jpg,jpeg|max:2048',
     ];
   }elseif(request()->isMethod('PUT')){
     $data = [

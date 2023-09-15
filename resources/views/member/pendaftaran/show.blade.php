@@ -21,9 +21,15 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
+                            <td width="30%">NIK</td>
+                            <td>
+                                {{ $pendaftaran->nik }}
+                            </td>
+                        </tr>
+                        <tr>
                             <td width="30%">Nama Lengkap dan Gelar</td>
                             <td>
-                                {{ $pendaftaran->user->name }}
+                                {{ $pendaftaran->name }}
                             </td>
                         </tr>
                         <tr>
@@ -33,9 +39,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="30%">NIK</td>
+                            <td width="30%">Nama Instansi</td>
                             <td>
-                                {{ auth()->user()->nik }}
+                                {{ $pendaftaran->agency }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="30%">Jabatan</td>
+                            <td>
+                                {{ $pendaftaran->position }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="30%">Alamat Instansi</td>
+                            <td>
+                                {{ $pendaftaran->agency_address }}
                             </td>
                         </tr>
                         <tr>
@@ -51,39 +69,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="30%">Jabatan</td>
-                            <td>
-                                {{ $pendaftaran->position }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Nama Instansi</td>
-                            <td>
-                                {{ $pendaftaran->agency }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Alamat Instansi</td>
-                            <td>
-                                {{ $pendaftaran->agency_address }}
-                            </td>
-                        </tr>
-                        <tr>
                             <td width="30%">Nomor HP</td>
                             <td>
                                 {{ $pendaftaran->phone }}
                             </td>
                         </tr>
                         <tr>
-                            <td width="30%">Alamat</td>
+                            <td width="30%">Email</td>
                             <td>
-                                {{ $pendaftaran->address }}
+                                {{ $pendaftaran->email }}
                             </td>
                         </tr>
                         <tr>
-                            <td width="30%">Email</td>
+                            <td width="30%">Alamat</td>
                             <td>
-                                {{ auth()->user()->email }}
+                                {{ $pendaftaran->address }}
                             </td>
                         </tr>
                     </tbody>

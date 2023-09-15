@@ -12,14 +12,16 @@ class Pendaftaran extends Model
     use HasFactory, HasScope;
 
     protected $fillable = [
+        'nik',
         'name',
         'nip',
+        'agency',
+        'position',
+        'agency_address',
         'birthplace',
         'birthdate',
-        'position',
-        'agency',
-        'agency_address',
         'phone',
+        'email',
         'address',
         'status',
         'registration_date',

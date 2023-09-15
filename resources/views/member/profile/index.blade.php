@@ -30,38 +30,38 @@
                                 @csrf
                                 @method('PUT')
                                 <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
-                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
-                                <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
-                                <x-input title="NIP" type="text" name="nip" :value="$user->nip"
-                                    placeholder="Enter Your NIP" />
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="number" name="nik" class="form-control" value="{{ $user->nik }}"
                                         disabled>
                                 </div>
+                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
+                                <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
+                                <x-input title="NIP" type="text" name="nip" :value="$user->nip"
+                                    placeholder="Enter Your NIP" />
+                                <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
+                                    :value="$user->agency" />
+                                <x-input title="Jabatan" type="text" name="position" placeholder="Enter Your Position"
+                                    :value="$user->position" />
+                                <x-textarea title="Alamat Instansi" name="agency_address"
+                                    placeholder="Enter Your Agency Address" value="">
+                                    {{ $user->agency_address }}</x-textarea>
                                 <x-input title="Tempat Lahir" type="text" name="birthplace"
                                     placeholder="Enter Your Birth of Place" :value="$user->birthplace" />
                                 <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder=""
                                     :value="$user->birthdate" />
-                                <x-input title="Jabatan" type="text" name="position" placeholder="Enter Your Position"
-                                    :value="$user->position" />
-                                <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
-                                    :value="$user->agency" />
-                                <x-textarea title="Alamat Instansi" name="agency_address"
-                                    placeholder="Enter Your Agency Address" value="">
-                                    {{ $user->agency_address }}</x-textarea>
-                                <x-input title="Nomor HP" type="text" name="phone"
-                                    placeholder="Enter Your Phone Number" :value="$user->phone" />
-                                <x-textarea title="Alamat" name="address" placeholder="Enter Your Address" value="">
-                                    {{ $user->address }}</x-textarea>
+                                <div class="form-group">
+                                    <label>Nomor HP</label>
+                                    <input type="number" name="phone" class="form-control" value="{{ $user->phone }}"
+                                        disabled>
+                                </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" value="{{ $user->email }}"
                                         disabled>
                                 </div>
-                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel"
-                                    value="">
-                                    {{ $user->about }}</x-textarea>
+                                <x-textarea title="Alamat" name="address" placeholder="Enter Your Address" value="">
+                                    {{ $user->address }}</x-textarea>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">
                                         <i class="mr-1 fas fa-check"></i> Update Profile

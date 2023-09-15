@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,24 +25,19 @@ class ProfileController extends Controller
         return view('member.profile.index', compact('user'));
     }
 
-    public function updateProfile(Request $request, User $user)
+    public function updateProfile(ProfileRequest $request, User $user)
     {
         // update data user bedasarkan id.
         $user->update([
             'name' => $request->name,
             'nip' => $request->nip,
-            'nik' => $request->nik,
             'birthplace' => $request->birthplace,
             'birthdate' => $request->birthdate,
             'position' => $request->position,
             'agency' => $request->agency,
             'agency_address' => $request->agency_address,
-            'phone' => $request->phone,
             'address' => $request->address,
             'username' => $request->username,
-            'github' => $request->github,
-            'instagram' => $request->instagram,
-            'about' => $request->about,
         ]);
 
         // cek apakah user mengirimkan request file avatar.

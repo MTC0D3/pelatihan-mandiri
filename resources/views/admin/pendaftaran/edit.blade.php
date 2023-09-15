@@ -9,6 +9,10 @@
                 @method('PUT')
                 <x-card-form title="EDIT PENDAFTARAN" url="{{ route('admin.pendaftaran.index') }}"
                     titleBtn="Update Pendaftaran">
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input type="number" name="nik" class="form-control" value="{{ $pendaftaran->nik }}" disabled>
+                    </div>
                     <x-input title="Nama Lengkap dan Gelar" type="text" name="name" placeholder="Enter Your Name"
                         :value="$pendaftaran->name" />
                     <x-input title="NIP" type="number" name="nip" placeholder="Enter your NIP" :value="$pendaftaran->nip" />
@@ -22,8 +26,16 @@
                     <x-textarea title="Alamat" name="agency_address" placeholder="Enter Your Agency Address"
                         value="{{ old('agency_address') }}">
                         {{ $pendaftaran->agency_address }}</x-textarea>
-                    <x-input title="Nomor HP" type="text" name="phone" placeholder="Enter Your Phone Number"
-                        :value="$pendaftaran->phone" />
+                    <div class="form-group">
+                        <label>Nomor HP</label>
+                        <input type="number" name="phone" class="form-control" value="{{ $pendaftaran->phone }}"
+                            disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" value="{{ $pendaftaran->email }}"
+                            disabled>
+                    </div>
                     <x-textarea title="Alamat" name="address" placeholder="Enter Your Address" value="{{ old('address') }}">
                         {{ $pendaftaran->address }}</x-textarea>
                     <x-select title="Pelatihan" name="pelatihan_id">

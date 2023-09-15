@@ -15,11 +15,24 @@ return new class extends Migration
     {
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
+
+            //NIK
+            $table->string('nik')->nullable();
+
              // Nama
             $table->string('name')->nullable();
 
             // NIP
             $table->string('nip')->nullable();
+
+             // Instansi
+            $table->string('agency')->nullable();
+
+             // Jabatan
+            $table->string('position')->nullable();
+
+            // Alamat Instansi
+             $table->text('agency_address')->nullable();
 
             // Tempat Lahir
             $table->string('birthplace')->nullable();
@@ -27,17 +40,11 @@ return new class extends Migration
             // Tanggal Lahir
             $table->date('birthdate')->nullable();
 
-            // Jabatan
-            $table->string('position')->nullable();
-
-             // Instansi
-             $table->string('agency')->nullable();
-
-             // Alamat Instansi
-             $table->text('agency_address')->nullable();
-
              // Nomor Hp
              $table->string('phone')->nullable();
+
+             // Email
+             $table->string('email')->nullable();
 
              // Alamat
              $table->text('address')->nullable();

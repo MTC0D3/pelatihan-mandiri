@@ -28,16 +28,15 @@ class PendaftaranRequest extends FormRequest
     
       if(request()->isMethod('POST')){
         $data = [
-          'name' => 'required',
-          'nip' => 'required',
-          'birthplace' => 'required',
-          'birthdate' => 'required|date',
-          'position' => 'required',
-          'agency' => 'required',
-          'agency_address' => 'required',
-          'phone' => 'required',
-          'address' => 'required',
-         'pelatihan_id' => [
+          'name' => ['required', 'string', 'max:255'],
+          'nip' => ['required', 'string', 'max:255'],
+          'agency' => ['required', 'string', 'max:255'],
+          'position' => ['required', 'string', 'max:255'],
+          'agency_address' => ['required', 'string'],
+          'birthplace' => ['required', 'string', 'max:255'],
+          'birthdate' => ['required', 'date'],
+          'address' => ['required', 'string'],
+          'pelatihan_id' => [
           'required',
         function ($attribute, $value, $fail) {
             // Mendapatkan pengguna yang saat ini masuk
@@ -57,15 +56,14 @@ class PendaftaranRequest extends FormRequest
 ];
       }elseif(request()->isMethod('PUT')){
         $data = [
-            'name' => 'nullable',
-            'nip' => 'nullable',
-            'birthplace' => 'nullable',
-            'birthdate' => 'nullable|date',
-            'position' => 'nullable',
-            'agency' => 'nullable',
-            'agency_address' => 'nullable',
-            'phone' => 'nullable',
-            'address' => 'nullable',
+            'name' => ['required', 'string', 'max:255'],
+            'nip' => ['required', 'string', 'max:255'],
+            'agency' => ['required', 'string', 'max:255'],
+            'position' => ['required', 'string', 'max:255'],
+            'agency_address' => ['required', 'string'],
+            'birthplace' => ['required', 'string', 'max:255'],
+            'birthdate' => ['required', 'date'],
+            'address' => ['required', 'string'],
         ];
       }
     

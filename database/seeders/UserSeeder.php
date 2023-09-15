@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'Taofik',
             'username' => 'admin',
             'nik' => '3271010205010006',
+            'phone' => '0895384276276',
             'email' => 'taofik.code@gmail.com',
             'password' => bcrypt('Taofik020501')
         ]);

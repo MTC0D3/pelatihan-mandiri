@@ -18,7 +18,7 @@
     @isset($fromDate, $toDate)
         <div class="my-3 col-12">
             <div class="mb-2 d-flex justify-content-end">
-                <a href="{{ route('admin.report.pdf', [$fromDate, $toDate]) }}" class="btn btn-primary">
+                <a href="{{ route('admin.report.excel', [$fromDate, $toDate]) }}" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-download" width="24"
                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -32,42 +32,7 @@
                 </a>
             </div>
             <x-card title="LAPORAN DATA PENDAFTARAN" class="p-0 card-body">
-                <x-table>
-                    <thead>
-                        <tr>
-                            <th style="width: 10px">NO</th>
-                            <th>NAME</th>
-                            <th>NIP</th>
-                            <th>NIK</th>
-                            <th>INSTANSI</th>
-                            <th>PHONE</th>
-                            <th>PELATIHAN</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($reports as $i => $report)
-                            <tr>
-                                <td>{{ $i + 1 }}</td>
-                                <td>{{ $report->name }}</td>
-                                <td>{{ $report->nip }}</td>
-                                <td>{{ $report->user->nik }}</td>
-                                <td>{{ $report->agency }}</td>
-                                <td>{{ $report->phone }}</td>
-                                <td>{{ $report->pelatihan->name }}</td>
-                                <td>
-                                    @if ($report->status == 'Terverifikasi')
-                                        <span class="badge badge-success">Terverifikasi</span>
-                                    @elseif($report->status == 'Belum Terverifikasi')
-                                        <span class="badge badge-warning">Belum Terverifikasi</span>
-                                    @else
-                                        <span class="badge badge-danger">Gagal</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </x-table>
+                @include('admin.report.table', $data)
             </x-card>
         </div>
     @endisset

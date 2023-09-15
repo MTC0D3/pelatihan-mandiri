@@ -6,24 +6,26 @@
             <x-input-search placeholder="Search user.." :url="route('admin.user.index')" />
         </div>
         <div class="col-12">
-            <x-card title="LIST USER">
+            <x-card title="DAFTAR USER">
                 <x-table>
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th style="width: 10px">NO</th>
-                            <th>NAME</th>
                             <th>NIK</th>
+                            <th>NAMA DAN GELAR</th>
+                            <th>NOMOR HP</th>
                             <th>EMAIL</th>
                             <th>ROLE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         @foreach ($users as $i => $user)
                             <tr>
                                 <td>{{ $users->firstItem() + $i }}</td>
-                                <td>{{ $user->name }}</td>
                                 <td>{{ $user->nik }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->phone }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     @foreach ($user->roles as $role)
@@ -31,18 +33,20 @@
                                     @endforeach
                                 </td>
                                 <td>
-                                    <x-button-modal :id="$user->id" />
-                                    <x-modal :id="$user->id" :url="route('admin.user.update', $user->id)" title="{{ $user->name }}"
-                                        titleBtn="Update User">
-                                        <x-select title="Role" name="roles[]">
-                                            @foreach ($roles as $role)
-                                                <option value="{{ $role->id }}" @selected($user->roles()->find($role->id))>
-                                                    {{ $role->name }}
-                                                </option>
-                                            @endforeach
-                                        </x-select>
-                                    </x-modal>
-                                    <x-button-delete :id="$user->id" :url="route('admin.user.destroy', $user->id)" />
+                                    <div class="row justify-content-between">
+                                        <x-button-modal :id="$user->id" />
+                                        <x-modal :id="$user->id" :url="route('admin.user.update', $user->id)" title="{{ $user->name }}"
+                                            titleBtn="Update User">
+                                            <x-select title="Role" name="roles[]">
+                                                @foreach ($roles as $role)
+                                                    <option value="{{ $role->id }}" @selected($user->roles()->find($role->id))>
+                                                        {{ $role->name }}
+                                                    </option>
+                                                @endforeach
+                                            </x-select>
+                                        </x-modal>
+                                        <x-button-delete :id="$user->id" :url="route('admin.user.destroy', $user->id)" />
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

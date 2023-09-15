@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('activity');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

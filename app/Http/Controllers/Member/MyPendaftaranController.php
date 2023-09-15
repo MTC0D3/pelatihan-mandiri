@@ -20,10 +20,12 @@ class MyPendaftaranController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-
-         $pendaftarans = Pendaftaran::where('user_id', $user->id)
-         ->search('name')
-        //  ->multiSearch('pelatihan', 'name')
+    
+         $pendaftarans = Pendaftaran::with('pelatihan')
+         ->where('user_id', $user->id)
+         ->whereHas('pelatihan', function ($query) use ($request) {
+            $query->where('name', 'LIKE', '%' . $request->input('search') . '%');
+        })
          ->latest()
          ->paginate(10);
 
@@ -54,7 +56,10 @@ class MyPendaftaranController extends Controller
      */
     public function store(PendaftaranRequest $request)
     {
-        $request->user()->pendaftarans()->create([
+        $user = $request->user();
+
+        $user->pendaftarans()->create([
+            'nik' => $user->nik,
             'name' => $request->name,
             'nip' => $request->nip,
             'birthplace' => $request->birthplace,
@@ -62,7 +67,8 @@ class MyPendaftaranController extends Controller
             'position' => $request->position,
             'agency' => $request->agency,
             'agency_address' => $request->agency_address,
-            'phone' => $request->phone,
+            'phone' => $user->phone,
+            'email' => $user->email,
             'address' => $request->address,
 
             'status' => 'Belum Terverifikasi',

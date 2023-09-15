@@ -10,7 +10,6 @@
                             alt="User profile picture">
                     </div>
                     <h3 class="text-center profile-username">{{ $user->name }}</h3>
-                    <p class="text-center text-muted">{{ $user->about }}</p>
                 </div>
             </div>
         </div>
@@ -30,16 +29,24 @@
                                 @csrf
                                 @method('PUT')
                                 <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
-                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
+                                <div class="form-group">
+                                    <label>NIK</label>
+                                    <input type="text" name="nik" class="form-control" value="{{ $user->nik }}"
+                                        disabled>
+                                </div>
+                                <x-input title="Nama dan Gelar" type="text" name="name" :value="$user->name"
+                                    placeholder="" />
                                 <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
+                                <div class="form-group">
+                                    <label>Nomor HP</label>
+                                    <input type="text" name="phone" class="form-control" value="{{ $user->phone }}"
+                                        disabled>
+                                </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" value="{{ $user->email }}"
                                         disabled>
                                 </div>
-                                <x-textarea title="About Me" name="about" placeholder="Cuma Hooman yang suka Laravel"
-                                    value="">
-                                    {{ $user->about }}</x-textarea>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">
                                         <i class="mr-1 fas fa-check"></i> Update Profile

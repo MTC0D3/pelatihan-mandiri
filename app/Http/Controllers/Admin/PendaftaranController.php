@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PendaftaranRequest;
 use App\Models\Pelatihan;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
+
 
 class PendaftaranController extends Controller
 {
@@ -17,7 +19,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        $pendaftarans = Pendaftaran::with(['pelatihan', 'user'])->search('name')->multiSearch('pelatihan', 'name')->latest()->paginate(10);
+        $pendaftarans = Pendaftaran::with(['pelatihan', 'user'])->search('nik')->multiSearch('pelatihan', 'name')->latest()->paginate(10);
 
         return view('admin.pendaftaran.index', compact('pendaftarans'));
     }
@@ -59,13 +61,11 @@ class PendaftaranController extends Controller
          $pendaftaran->update([
             'name' => $request->name,
             'nip' => $request->nip,
+            'agency' => $request->agency,
+            'position' => $request->position,
+            'agency_address' => $request->agency_address,
             'birthplace' => $request->birthplace,
             'birthdate' => $request->birthdate,
-            'position' => $request->position,
-            'agency' => $request->agency,
-            'agency_address' => $request->agency_address,
-            'phone' => $request->phone,
-            'email' => $request->email,
             'address' => $request->address,
             'status' => $request->status,
 
@@ -88,4 +88,5 @@ class PendaftaranController extends Controller
         // kembali kehalaman sebelumnya dengan membawa toastr.
         return back()->with('toast_success', 'Pendaftaran Deleted');
     }
+
 }

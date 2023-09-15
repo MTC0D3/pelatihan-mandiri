@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Member\ProfileController as MemberProfileController;
 use App\Http\Controllers\Member\DashboardController as MemberDashboardController;
 use App\Http\Controllers\Member\MyPendaftaranController as MemberPendaftaranController;
-
+use App\Models\Pendaftaran;
 
 // home route
 Route::get('/', HomeController::class)->name('home');
@@ -26,6 +26,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     Route::resource('/pelatihan', PelatihanController::class);
 
     Route::resource('/pendaftaran', PendaftaranController::class);
+    
 
     // admin user route
     Route::controller(UserController::class)->as('user.')->group(function(){
@@ -39,6 +40,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
         Route::get('/report', 'index')->name('index');
         Route::get('/report/filter', 'filter')->name('filter');
         Route::get('/report/pdf/{fromDate}/{toDate}', 'pdf')->name('pdf');
+        Route::get('/report/excel/{fromDate}/{toDate}', 'export_excel')->name('excel');
       });
 });
 

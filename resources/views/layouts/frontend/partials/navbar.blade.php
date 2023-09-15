@@ -5,7 +5,7 @@
             <ul class="flex items-center justify-center gap-5">
                 <li>
                     <a href="/" class="flex items-center text-lg font-semibold text-white">
-                        <div class="text-center mr-2">
+                        <div class="mr-2 text-center">
                             <img src="{{ asset('logo.png') }}" class="icon icon-tabler icon-tabler-brand-tabler"
                                 width="40" height="40" viewBox="0 0 24 24" stroke-width="1.25"
                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -13,34 +13,6 @@
                         BBPKH CINAGARA
                     </a>
                 </li>
-                {{-- <li class="hidden lg:flex">
-                    <a href="{{ route('home') }}"
-                        class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('home') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 icon icon-tabler icon-tabler-home"
-                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <polyline points="5 12 3 12 12 3 21 12 19 12"></polyline>
-                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
-                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li class="hidden lg:flex">
-                    <a href="{{route('course.index') }}"
-                        class="text-sm font-semibold text-white flex items-center gap-2 {{ activeNav('course.index') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-5 h-5 icon icon-tabler icon-tabler-device-laptop" width="24" height="24"
-                            viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <line x1="3" y1="19" x2="21" y2="19"></line>
-                            <rect x="5" y="6" width="14" height="10" rx="1"></rect>
-                        </svg>
-                        Course
-                    </a>
-                </li> --}}
             </ul>
             <!-- NavProfile -->
             <div class="items-center hidden gap-2 text-white md:flex">
@@ -240,36 +212,6 @@
                     @endauth
                     <ul x-cloak x-show="isOpen" @click.away="isOpen = false"
                         class="absolute right-0 z-20 w-48 py-1 mt-2 overflow-hidden font-normal border rounded-lg shadow bg-slate-800 border-slate-700">
-                        {{-- <li>
-                            <a href="{{ route('home') }}"
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('home') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-5 h-5 icon icon-tabler icon-tabler-home" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <polyline points="5 12 3 12 12 3 21 12 19 12"></polyline>
-                                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
-                                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
-                                </svg>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('course.index') }}"
-                                class="p-3 rounded-lg text-sm font-semibold text-white flex items-center gap-2 hover:text-blue-500 {{ activeNav('course*') }}">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-5 h-5 icon icon-tabler icon-tabler-device-laptop" width="24"
-                                    height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <line x1="3" y1="19" x2="21" y2="19"></line>
-                                    <rect x="5" y="6" width="14" height="10"
-                                        rx="1"></rect>
-                                </svg>
-                                Course
-                            </a>
-                        </li> --}}
                         @guest
                             <li>
                                 <a href="{{ route('login') }}"

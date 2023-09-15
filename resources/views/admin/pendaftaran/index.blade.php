@@ -6,28 +6,28 @@
             <x-input-search placeholder="Search pendaftaran.." :url="route('admin.pendaftaran.index')" />
         </div>
         <div class="col-12">
-            <x-card title="LIST PENDAFTARAN">
+            <x-card title="DAFTAR PENDAFTARAN">
                 <x-table>
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th style="width: 10px">NO</th>
-                            <th>NAME</th>
-                            <th>NIP</th>
                             <th>NIK</th>
+                            <th>NAMA DAN GELAR</th>
+                            <th>NIP</th>
                             <th>INSTANSI</th>
-                            <th>PHONE</th>
+                            <th>NOMOR HP</th>
                             <th>PELATIHAN</th>
                             <th>STATUS</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         @foreach ($pendaftarans as $i => $pendaftaran)
                             <tr>
                                 <td>{{ $pendaftarans->firstItem() + $i }}</td>
+                                <td>{{ $pendaftaran->nik }}</td>
                                 <td>{{ $pendaftaran->name }}</td>
                                 <td>{{ $pendaftaran->nip }}</td>
-                                <td>{{ $pendaftaran->user->nik }}</td>
                                 <td>{{ $pendaftaran->agency }}</td>
                                 <td>{{ $pendaftaran->phone }}</td>
                                 <td>{{ $pendaftaran->pelatihan->name }}</td>
@@ -41,8 +41,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <x-button-edit :url="route('admin.pendaftaran.edit', $pendaftaran->id)" />
-                                    <x-button-delete :id="$pendaftaran->id" :url="route('admin.pendaftaran.destroy', $pendaftaran->id)" />
+                                    <div class="row justify-content-between">
+                                        <x-button-edit :url="route('admin.pendaftaran.edit', $pendaftaran->id)" />
+                                        <x-button-delete :id="$pendaftaran->id" :url="route('admin.pendaftaran.destroy', $pendaftaran->id)" />
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

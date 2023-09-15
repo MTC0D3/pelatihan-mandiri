@@ -26,7 +26,7 @@ class UserController extends Controller
             dengan urutan terbaru.
         */
         $users = User::with('roles')
-            ->search('name')->multiSearch('roles', 'name')
+            ->search('nik')->multiSearch('roles', 'name')
             ->latest()
             ->paginate(10);
 
@@ -83,8 +83,6 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'username' => $request->username,
-            'instagram' => $request->instagram,
-            'about' => $request->about,
         ]);
 
         // cek apakah user mengirimkan request file avatar.
