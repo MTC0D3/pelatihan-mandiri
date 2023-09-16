@@ -17,37 +17,37 @@ return new class extends Migration
             $table->id();
 
             //NIK
-            $table->string('nik')->nullable();
+            $table->string('nik');
 
              // Nama
-            $table->string('name')->nullable();
+            $table->string('name');
 
             // NIP
-            $table->string('nip')->nullable();
+            $table->string('nip');
 
              // Instansi
-            $table->string('agency')->nullable();
+            $table->string('agency');
 
              // Jabatan
-            $table->string('position')->nullable();
+            $table->string('position');
 
             // Alamat Instansi
-             $table->text('agency_address')->nullable();
+             $table->text('agency_address');
 
             // Tempat Lahir
-            $table->string('birthplace')->nullable();
+            $table->string('birthplace');
 
             // Tanggal Lahir
-            $table->date('birthdate')->nullable();
+            $table->date('birthdate');
 
              // Nomor Hp
-             $table->string('phone')->nullable();
+             $table->string('phone');
 
              // Email
-             $table->string('email')->nullable();
+             $table->string('email');
 
              // Alamat
-             $table->text('address')->nullable();
+             $table->text('address');
 
 
             $table->foreignId('pelatihan_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();

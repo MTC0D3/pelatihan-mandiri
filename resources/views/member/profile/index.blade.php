@@ -36,7 +36,6 @@
                                         disabled>
                                 </div>
                                 <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
-                                <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
                                 <x-input title="NIP" type="text" name="nip" :value="$user->nip"
                                     placeholder="Enter Your NIP" />
                                 <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
@@ -50,11 +49,7 @@
                                     placeholder="Enter Your Birth of Place" :value="$user->birthplace" />
                                 <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder=""
                                     :value="$user->birthdate" />
-                                <div class="form-group">
-                                    <label>Nomor HP</label>
-                                    <input type="number" name="phone" class="form-control" value="{{ $user->phone }}"
-                                        disabled>
-                                </div>
+                                <x-input title="Nomor HP" type="string" name="phone" placeholder="" :value="$user->phone" />
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" value="{{ $user->email }}"

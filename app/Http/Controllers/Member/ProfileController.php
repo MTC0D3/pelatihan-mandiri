@@ -38,6 +38,7 @@ class ProfileController extends Controller
             'agency_address' => $request->agency_address,
             'address' => $request->address,
             'username' => $request->username,
+            'phone' => $request->phone,
         ]);
 
         // cek apakah user mengirimkan request file avatar.

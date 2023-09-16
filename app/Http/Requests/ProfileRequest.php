@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+
 
 class ProfileRequest extends FormRequest
 {
@@ -33,6 +36,11 @@ class ProfileRequest extends FormRequest
              'agency_address' => ['nullable', 'string'],
              'birthplace' => ['nullable', 'string', 'max:255'],
              'birthdate' => ['nullable', 'date'],
+             'phone' => [
+                'required',
+                'regex:/^[0-9]{10,13}$/',
+                Rule::unique(User::class),
+            ],
              'address' => ['nullable', 'string'],
              'avatar' => ['mimes:png,jpg,jpeg', 'max:2048']
         ];

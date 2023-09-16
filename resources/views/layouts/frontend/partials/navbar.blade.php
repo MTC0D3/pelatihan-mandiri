@@ -29,7 +29,7 @@
                         </svg>
                         Sign In
                     </a>
-                    <a href="{{ route('register') }}"
+                    <a href="{{ route('register.step1') }}"
                         class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white border rounded-lg bg-slate-700 border-slate-900">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 icon icon-tabler icon-tabler-user-plus"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor"
@@ -229,7 +229,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('register') }}"
+                                <a href="{{ route('register.step1') }}"
                                     class="flex items-center gap-2 p-3 text-sm font-semibold text-white rounded-lg hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="w-5 h-5 icon icon-tabler icon-tabler-user-plus" width="24"

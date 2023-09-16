@@ -4,7 +4,7 @@
     @include('layouts.frontend.partials.hero')
     <section class="w-full p-10 bg-slate-600">
         <div class="flex flex-col items-center gap-2 mb-10 text-center">
-            <h1 class="text-2xl font-bold text-white">PELATIHAN BERJALAN</h1>
+            <h1 class="text-2xl font-bold text-white" style="letter-spacing: 1px;">PELATIHAN YANG TERSEDIA</h1>
             <div class="h-1 mt-2 w-60 bg-slate-800"></div>
         </div>
         <div class="container grid items-start grid-cols-1 gap-8 mx-auto my-5 md:grid-cols-2 lg:grid-cols-3">
@@ -23,7 +23,7 @@
                     Mari segera bergabung bersama kami di pelatihan mandiri BBPKH Cinagara
                 </p>
                 <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8">
-                    <a href="{{ route('register') }}"
+                    <a href="{{ route('register.step1') }}"
                         class="flex items-center gap-2 px-4 py-2 text-base text-white border rounded-lg bg-slate-800 hover:scale-110 hover:duration-200 border-slate-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="24"
                             height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"

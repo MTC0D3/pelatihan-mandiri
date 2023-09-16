@@ -36,7 +36,6 @@
                                 </div>
                                 <x-input title="Nama dan Gelar" type="text" name="name" :value="$user->name"
                                     placeholder="" />
-                                <x-input title="Username" type="text" name="username" :value="$user->username" placeholder="" />
                                 <div class="form-group">
                                     <label>Nomor HP</label>
                                     <input type="text" name="phone" class="form-control" value="{{ $user->phone }}"
