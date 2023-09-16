@@ -23,11 +23,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     // admin dashboard route
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
+    // admin pelatihan route
     Route::resource('/pelatihan', PelatihanController::class);
 
+    // admin pendaftaran route
     Route::resource('/pendaftaran', PendaftaranController::class);
     
-
     // admin user route
     Route::controller(UserController::class)->as('user.')->group(function(){
         Route::get('/user/profile', 'profile')->name('profile');
@@ -36,24 +37,27 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth', 'r
     });
     Route::resource('/user', UserController::class)->only('index', 'update', 'destroy');
 
+    // admin report route
     Route::controller(ReportController::class)->as('report.')->group(function(){
         Route::get('/report', 'index')->name('index');
         Route::get('/report/filter', 'filter')->name('filter');
-        Route::get('/report/pdf/{fromDate}/{toDate}', 'pdf')->name('pdf');
         Route::get('/report/excel/{fromDate}/{toDate}', 'export_excel')->name('excel');
       });
 });
+
 
 // member route
 Route::group(['as' => 'member.', 'prefix' => 'account', 'middleware' => ['auth', 'role:member']], function(){
     // member dashboard route
     Route::get('/dashboard', MemberDashboardController::class)->name('dashboard');
 
+    // member profile route
     Route::controller(MemberProfileController::class)->as('profile.')->group(function(){
         Route::get('/profile', 'index')->name('index');
         Route::put('/profile/{user}', 'updateProfile')->name('update');
         Route::put('/profile/password/{user}', 'updatePassword')->name('password');
     });
 
+    // member pendaftaran route
     Route::resource('/pendaftaran', MemberPendaftaranController::class);
 });
