@@ -12,21 +12,17 @@
             <div>
                 <div>
                     <h3 class="text-white uppercase">Informasi</h3>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">
+                    <a href="https://bbpkhcinagara.com/site" class="block mt-2 text-sm text-gray-400 hover:underline">
                         Tentang Kami
                     </a>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">FAQ</a>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">Tim Kami</a>
                 </div>
             </div>
             <div>
                 <div>
-                    <h3 class="text-white uppercase">Komunitas</h3>
+                    <h3 class="text-white uppercase">Kontak</h3>
                     <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">
-                        Ulasan Member
+                        WhatsApp
                     </a>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">Grup Telegram</a>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">Komunitas Discord</a>
                 </div>
             </div>
         </div>
