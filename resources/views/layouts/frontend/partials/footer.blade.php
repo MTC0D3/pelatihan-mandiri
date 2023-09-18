@@ -20,7 +20,7 @@
             <div>
                 <div>
                     <h3 class="text-white uppercase">Kontak</h3>
-                    <a href="#" class="block mt-2 text-sm text-gray-400 hover:underline">
+                    <a href="https://wa.me/6287873120813" class="block mt-2 text-sm text-gray-400 hover:underline">
                         WhatsApp
                     </a>
                 </div>
