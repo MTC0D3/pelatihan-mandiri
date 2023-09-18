@@ -7,34 +7,70 @@
                 @csrf
                 <x-card-form title="CREATE NEW PENDAFTARAN" url="{{ route('member.pendaftaran.index') }}"
                     titleBtn="Create Pelatihan">
+                    {{-- NIK --}}
                     <div class="form-group">
                         <label>NIK</label>
-                        <input type="number" name="nik" class="form-control" value="{{ auth()->user()->nik }}" disabled>
+                        <input type="text" name="nik" class="form-control" value="{{ auth()->user()->nik }}" disabled>
                     </div>
-                    <x-input title="Nama Lengkap dan Gelar" type="text" name="name" placeholder="Enter Your Name"
-                        :value="auth()->user()->name" />
-                    <x-input title="NIP" type="text" name="nip" placeholder="Enter Your NIP" :value="auth()->user()->nip" />
-                    <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
-                        :value="auth()->user()->agency" />
-                    <x-input title="Jabatan" type="text" name="position" placeholder="Enter Your Position"
-                        :value="auth()->user()->position" />
-                    <x-textarea title="Alamat Instansi" name="agency_address" placeholder="Enter Your Agency Address"
-                        value="">{{ auth()->user()->agency_address }}</x-textarea>
-                    <x-input title="Tempat Lahir" type="text" name="birthplace" placeholder="Enter Your Birth of Place"
-                        :value="auth()->user()->birthplace" />
-                    <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder="" :value="auth()->user()->birthdate" />
+                    {{-- Nama dan Gelar --}}
+                    <div class="form-group">
+                        <label>Nama dan Gelar</label>
+                        <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}"
+                            disabled>
+                    </div>
+                    {{-- NIP --}}
+                    <div class="form-group">
+                        <label>NIP</label>
+                        <input type="text" name="nip" class="form-control" value="{{ auth()->user()->nip }}"
+                            disabled>
+                    </div>
+                    {{-- Nama Instansi --}}
+                    <div class="form-group">
+                        <label>Nama Instansi</label>
+                        <input type="text" name="agency" class="form-control" value="{{ auth()->user()->agency }}"
+                            disabled>
+                    </div>
+                    {{-- Jabatan --}}
+                    <div class="form-group">
+                        <label>Jabatan</label>
+                        <input type="text" name="position" class="form-control" value="{{ auth()->user()->position }}"
+                            disabled>
+                    </div>
+                    {{-- Alamat Instansi --}}
+                    <div class="form-group">
+                        <label>Alamat Instansi</label>
+                        <textarea type="text" name="agency_address" class="form-control" value="" disabled>{{ auth()->user()->agency_address }}</textarea>
+                    </div>
+                    {{-- Tempat Lahir --}}
+                    <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <input type="text" name="birthplace" class="form-control"
+                            value="{{ auth()->user()->birthplace }}" disabled>
+                    </div>
+                    {{-- Tanggal Lahir --}}
+                    <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" name="birthdate" class="form-control" value="{{ auth()->user()->birthdate }}"
+                            disabled>
+                    </div>
+                    {{-- Nomor HP --}}
                     <div class="form-group">
                         <label>Nomor HP</label>
                         <input type="number" name="phone" class="form-control" value="{{ auth()->user()->phone }}"
                             disabled>
                     </div>
+                    {{-- Email --}}
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" value="{{ auth()->user()->email }}"
                             disabled>
                     </div>
-                    <x-textarea title="Alamat" name="address" placeholder="Enter Your Address" value="">
-                        {{ auth()->user()->address }}</x-textarea>
+                    {{-- Alamat --}}
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea type="text" name="address" class="form-control" value="" disabled>{{ auth()->user()->address }}</textarea>
+                    </div>
+                    {{-- Pelatihan --}}
                     <x-select title="Pelatihan" name="pelatihan_id">
                         <option selected disabled>Select Pelatihan</option>
                         @foreach ($dataJadwal as $pelatihan)

@@ -32,10 +32,11 @@
                                 <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <input type="number" name="nik" class="form-control" value="{{ $user->nik }}"
+                                    <input type="text" name="nik" class="form-control" value="{{ $user->nik }}"
                                         disabled>
                                 </div>
-                                <x-input title="Full Name" type="text" name="name" :value="$user->name" placeholder="" />
+                                <x-input title="Nama dan Gelar" type="text" name="name" :value="$user->name"
+                                    placeholder="" />
                                 <x-input title="NIP" type="text" name="nip" :value="$user->nip"
                                     placeholder="Enter Your NIP" />
                                 <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
@@ -49,7 +50,11 @@
                                     placeholder="Enter Your Birth of Place" :value="$user->birthplace" />
                                 <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder=""
                                     :value="$user->birthdate" />
-                                <x-input title="Nomor HP" type="string" name="phone" placeholder="" :value="$user->phone" />
+                                <div class="form-group">
+                                    <label>Nomor HP</label>
+                                    <input type="text" name="phone" class="form-control" value="{{ $user->phone }}"
+                                        disabled>
+                                </div>
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="email" name="email" class="form-control" value="{{ $user->email }}"

@@ -7,7 +7,7 @@
         <form action="{{ route('register.step3.post') }}" method="post">
             @csrf
             <div class="mb-3 input-group">
-                <input type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone"
+                <input type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="Nomor HP"
                     name="phone" value="{{ old('phone') }}">
                 <div class="input-group-append">
                     <div class="input-group-text">
@@ -35,25 +35,11 @@
                 @enderror
             </div>
             <div class="mb-3 input-group">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password"
-                    name="password">
+                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                    placeholder="Password Baru" name="password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>
-                    </div>
-                </div>
-                @error('password')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="mb-3 input-group">
-                <input type="password" class="form-control @error('password') is-invalid @enderror"
-                    placeholder="Password Confirmation" name="password_confirmation">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-check"></span>
                     </div>
                 </div>
                 @error('password')

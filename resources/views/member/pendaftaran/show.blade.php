@@ -27,7 +27,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td width="30%">Nama Lengkap dan Gelar</td>
+                            <td width="30%">Nama dan Gelar</td>
                             <td>
                                 {{ $pendaftaran->name }}
                             </td>

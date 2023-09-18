@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,14 +28,6 @@ class PendaftaranRequest extends FormRequest
     
       if(request()->isMethod('POST')){
         $data = [
-          'name' => ['required', 'string', 'max:255'],
-          'nip' => ['required', 'string', 'max:255'],
-          'agency' => ['required', 'string', 'max:255'],
-          'position' => ['required', 'string', 'max:255'],
-          'agency_address' => ['required', 'string'],
-          'birthplace' => ['required', 'string', 'max:255'],
-          'birthdate' => ['required', 'date'],
-          'address' => ['required', 'string'],
           'pelatihan_id' => [
           'required',
         function ($attribute, $value, $fail) {

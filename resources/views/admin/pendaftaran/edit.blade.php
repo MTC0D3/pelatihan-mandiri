@@ -11,11 +11,11 @@
                     titleBtn="Update Pendaftaran">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input type="number" name="nik" class="form-control" value="{{ $pendaftaran->nik }}" disabled>
+                        <input type="text" name="nik" class="form-control" value="{{ $pendaftaran->nik }}" disabled>
                     </div>
                     <x-input title="Nama Lengkap dan Gelar" type="text" name="name" placeholder="Enter Your Name"
                         :value="$pendaftaran->name" />
-                    <x-input title="NIP" type="number" name="nip" placeholder="Enter your NIP" :value="$pendaftaran->nip" />
+                    <x-input title="NIP" type="text" name="nip" placeholder="Enter your NIP" :value="$pendaftaran->nip" />
                     <x-input title="Tempat Lahir" type="text" name="birthplace" placeholder="Enter Your Birth of Place"
                         :value="$pendaftaran->birthplace" />
                     <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder="" :value="$pendaftaran->birthdate" />

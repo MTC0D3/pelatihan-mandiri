@@ -15,16 +15,27 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            // NIK
             $table->bigInteger('nik')->unique();
+            // Nama
             $table->string('name');
-            $table->string('nip');
+            // Tempat lahir
             $table->string('birthplace');
+            // Tanggal Lahir
             $table->date('birthdate');
-            $table->string('position');
-            $table->string('agency');
-            $table->text('agency_address');
-            $table->string('phone')->unique();
+            // Alamat
             $table->text('address');
+            // NIP
+            $table->string('nip');
+            // Instansi
+            $table->string('agency');
+            // Jabatan
+            $table->string('position');
+            // Alamat Instansi
+            $table->text('agency_address');
+            // Nomor HP
+            $table->string('phone')->unique();
+            // Email
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
@@ -36,7 +35,7 @@ class CustomRegisterController extends Controller
 
             'birthdate' => ['required', 'date'],
 
-            'address' => ['required', 'string'],
+            'address' => ['required', 'string', 'max:500'],
         ]);
 
         // Simpan data langkah 1 ke dalam sesi
@@ -61,7 +60,7 @@ class CustomRegisterController extends Controller
 
           'position' => ['required', 'string', 'max:255'],
 
-           'agency_address' => ['required', 'string'],  
+           'agency_address' => ['required', 'string', 'max:500'],  
         ]);
 
         // Simpan data langkah 1 ke dalam sesi

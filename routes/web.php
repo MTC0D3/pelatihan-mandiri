@@ -22,8 +22,8 @@ Route::get('/', HomeController::class)->name('home');
 
  // admin user route
     Route::controller(CustomRegisterController::class)->as('register.')->group(function(){
-        Route::get('/register/tahap1', 'showStep1Form')->name('step1');
-        Route::post('/register/tahap1','postStep1')->name('step1.post');
+        Route::get('/register', 'showStep1Form')->name('step1');
+        Route::post('/register','postStep1')->name('step1.post');
 
         Route::get('/register/tahap2','showStep2Form')->name('step2');
         Route::post('/register/tahap2', 'postStep2')->name('step2.post');

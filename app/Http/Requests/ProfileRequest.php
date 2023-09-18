@@ -28,20 +28,14 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-             'name' => ['nullable', 'string', 'max:255'],
-             'username' => ['nullable', 'string', 'max:255'],
-             'nip' => ['nullable', 'string', 'max:255'],
-             'agency' => ['nullable', 'string', 'max:255'],
-             'position' => ['nullable', 'string', 'max:255'],
-             'agency_address' => ['nullable', 'string'],
-             'birthplace' => ['nullable', 'string', 'max:255'],
-             'birthdate' => ['nullable', 'date'],
-             'phone' => [
-                'required',
-                'regex:/^[0-9]{10,13}$/',
-                Rule::unique(User::class),
-            ],
-             'address' => ['nullable', 'string'],
+             'name' => ['required', 'string', 'max:255'],
+             'nip' => ['required', 'string', 'max:255'],
+             'agency' => ['required', 'string', 'max:255'],
+             'position' => ['required', 'string', 'max:255'],
+             'agency_address' => ['required', 'string', 'max:500'],
+             'birthplace' => ['required', 'string', 'max:255'],
+             'birthdate' => ['required', 'date'],
+             'address' => ['required', 'string', 'max:500'],
              'avatar' => ['mimes:png,jpg,jpeg', 'max:2048']
         ];
     }

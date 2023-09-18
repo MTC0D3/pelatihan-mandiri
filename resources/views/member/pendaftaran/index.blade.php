@@ -13,10 +13,10 @@
                         <tr>
                             <th style="width: 10px">NO</th>
                             <th>NIK</th>
-                            <th>NAME</th>
+                            <th>NAMA DAN GELAR</th>
                             <th>NIP</th>
                             <th>INSTANSI</th>
-                            <th>PHONE</th>
+                            <th>NOMOR HP</th>
                             <th>PELATIHAN</th>
                             <th>STATUS</th>
                             <th>ACTION</th>

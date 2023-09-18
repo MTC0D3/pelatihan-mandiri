@@ -22,6 +22,15 @@ return new class extends Migration
              // Nama
             $table->string('name');
 
+            // Tempat Lahir
+            $table->string('birthplace');
+
+            // Tanggal Lahir
+            $table->date('birthdate');
+
+             // Alamat
+             $table->text('address');
+
             // NIP
             $table->string('nip');
 
@@ -34,21 +43,11 @@ return new class extends Migration
             // Alamat Instansi
              $table->text('agency_address');
 
-            // Tempat Lahir
-            $table->string('birthplace');
-
-            // Tanggal Lahir
-            $table->date('birthdate');
-
              // Nomor Hp
              $table->string('phone');
 
              // Email
              $table->string('email');
-
-             // Alamat
-             $table->text('address');
-
 
             $table->foreignId('pelatihan_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
