@@ -5,7 +5,7 @@
         <h1 class="text-2xl font-semibold text-white">{{ $pelatihan->name }}</h1>
     </div>
     <div class="p-4 border-t border-dashed border-slate-700">
-        <div class="flex gap-1">
+        <div class="flex justify-center gap-1">
             @if (
                 !auth()->user()
                     ?->hasRole('admin'))

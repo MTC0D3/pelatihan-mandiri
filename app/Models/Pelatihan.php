@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\HasSlug;
+
 use App\Traits\HasScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pelatihan extends Model
 {
-    use HasFactory, HasSlug, HasScope;
+    use HasFactory, HasScope;
 
-    protected $fillable = ['name','slug', 'activity', 'image',  'start_date', 'end_date'];
+    protected $fillable = ['name','activity', 'image',  'start_date', 'end_date'];
 
     protected function image(): Attribute
     {
