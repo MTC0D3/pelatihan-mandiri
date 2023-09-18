@@ -23,7 +23,7 @@
                         :value="$pendaftaran->position" />
                     <x-input title="Instansi" type="text" name="agency" placeholder="Enter Your Agency"
                         :value="$pendaftaran->agency" />
-                    <x-textarea title="Alamat" name="agency_address" placeholder="Enter Your Agency Address"
+                    <x-textarea title="Alamat Instansi" name="agency_address" placeholder="Enter Your Agency Address"
                         value="{{ old('agency_address') }}">
                         {{ $pendaftaran->agency_address }}</x-textarea>
                     <div class="form-group">
