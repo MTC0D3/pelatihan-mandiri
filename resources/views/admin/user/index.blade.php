@@ -36,7 +36,7 @@
                                     <div class="row justify-content-between">
                                         <x-button-modal :id="$user->id" />
                                         <x-modal :id="$user->id" :url="route('admin.user.update', $user->id)" title="{{ $user->name }}"
-                                            titleBtn="Update User">
+                                            titleBtn="Update Role">
                                             <x-select title="Role" name="roles[]">
                                                 @foreach ($roles as $role)
                                                     <option value="{{ $role->id }}" @selected($user->roles()->find($role->id))>

@@ -26,8 +26,13 @@ class ReportController extends Controller
 
     public function filter(Request $request)
     {
-        $fromDate = $request->from_date;
-        $toDate = $request->to_date;
+        $report = $request->validate([
+            'from_date' => 'required',
+            'to_date' => 'required'
+        ]);
+
+        $fromDate = $report['from_date'];
+        $toDate = $report['to_date'];
 
         $data = Pendaftaran::with(['pelatihan', 'user'])
             ->whereDate('created_at', '>=', $fromDate)

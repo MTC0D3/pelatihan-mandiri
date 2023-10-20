@@ -12,7 +12,7 @@
                         value="{{ $toDate }}" />
                 </div>
             </div>
-            <x-button-save title="Report Data" />
+            <x-button-save title="Buat Laporan" />
         </form>
     </div>
     @isset($fromDate, $toDate)

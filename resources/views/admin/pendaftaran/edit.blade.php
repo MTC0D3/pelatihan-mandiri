@@ -7,7 +7,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <x-card-form title="EDIT PENDAFTARAN" url="{{ route('admin.pendaftaran.index') }}"
+                <x-card-form title="PEMBARUAN PENDAFTARAN" url="{{ route('admin.pendaftaran.index') }}"
                     titleBtn="Update Pendaftaran">
                     <div class="form-group">
                         <label>NIK</label>

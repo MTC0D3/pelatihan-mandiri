@@ -5,8 +5,8 @@
         <div class="col-10">
             <form action="{{ route('member.pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <x-card-form title="CREATE NEW PENDAFTARAN" url="{{ route('member.pendaftaran.index') }}"
-                    titleBtn="Create Pelatihan">
+                <x-card-form title="BUAT PENDAFTARAN BARU" url="{{ route('member.pendaftaran.index') }}"
+                    titleBtn="Simpan Pendaftaran">
                     {{-- NIK --}}
                     <div class="form-group">
                         <label>NIK</label>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Member;
 
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PendaftaranRequest;
 use App\Models\Pelatihan;
