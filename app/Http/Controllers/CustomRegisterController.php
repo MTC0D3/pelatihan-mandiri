@@ -101,7 +101,7 @@ class CustomRegisterController extends Controller
         // Dapatkan data langkah 1 dari sesi
         $step1Data = Session::get('step1_data');
 
-        // Dapatkan data langkah 1 dari sesi
+        // Dapatkan data langkah 2 dari sesi
         $step2Data = Session::get('step2_data');
 
         // Gabungkan data langkah 1 dan langkah 2, dan buat pengguna
@@ -131,9 +131,7 @@ class CustomRegisterController extends Controller
         // Hapus data sesi
         Session::forget('step1_data', 'step2_data');
 
-        auth()->login($user);
-
-        return redirect()->route('home')->with('success', 'Pendaftaran selesai! Anda sekarang masuk ke akun Anda.');
+        return redirect()->route('login')->with('toast_success', 'Sign Up Successfuly');
     }
 
     // Tambahkan langkah-langkah dan metode sesuai kebutuhan
