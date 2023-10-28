@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             //NIK
-            $table->string('nik');
+            $table->bigInteger('nik');
 
              // Nama
             $table->string('name');
