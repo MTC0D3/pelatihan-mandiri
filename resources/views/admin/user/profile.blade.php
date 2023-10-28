@@ -28,7 +28,6 @@
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <x-upload-file title="Avatar" name="avatar" :value="$user->avatar" />
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="text" name="nik" class="form-control" value="{{ $user->nik }}"
@@ -36,6 +35,19 @@
                                 </div>
                                 <x-input title="Nama dan Gelar" type="text" name="name" :value="$user->name"
                                     placeholder="" />
+                                <x-input title="NIP" type="text" name="nip" :value="$user->nip"
+                                    placeholder="Enter Your NIP" />
+                                <x-input title="Nama Instansi" type="text" name="agency" placeholder="Enter Your Agency"
+                                    :value="$user->agency" />
+                                <x-input title="Jabatan" type="text" name="position" placeholder="Enter Your Position"
+                                    :value="$user->position" />
+                                <x-textarea title="Alamat Instansi" name="agency_address"
+                                    placeholder="Enter Your Agency Address" value="">
+                                    {{ $user->agency_address }}</x-textarea>
+                                <x-input title="Tempat Lahir" type="text" name="birthplace"
+                                    placeholder="Enter Your Birth of Place" :value="$user->birthplace" />
+                                <x-input title="Tanggal Lahir" type="date" name="birthdate" placeholder=""
+                                    :value="$user->birthdate" />
                                 <div class="form-group">
                                     <label>Nomor HP</label>
                                     <input type="text" name="phone" class="form-control" value="{{ $user->phone }}"
@@ -46,6 +58,8 @@
                                     <input type="email" name="email" class="form-control" value="{{ $user->email }}"
                                         disabled>
                                 </div>
+                                <x-textarea title="Alamat" name="address" placeholder="Enter Your Address" value="">
+                                    {{ $user->address }}</x-textarea>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">
                                         <i class="mr-1 fas fa-check"></i> Update Profile

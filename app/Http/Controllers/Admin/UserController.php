@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -77,12 +78,18 @@ class UserController extends Controller
         return view('admin.user.profile', compact('user'));
     }
 
-    public function profileUpdate(Request $request, User $user)
+    public function profileUpdate(ProfileRequest $request, User $user)
     {
         // update data user bedasarkan id tanpa melakukan update avatar.
         $user->update([
             'name' => $request->name,
-            'username' => $request->username,
+            'nip' => $request->nip,
+            'birthplace' => $request->birthplace,
+            'birthdate' => $request->birthdate,
+            'position' => $request->position,
+            'agency' => $request->agency,
+            'agency_address' => $request->agency_address,
+            'address' => $request->address,
         ]);
 
         // cek apakah user mengirimkan request file avatar.
