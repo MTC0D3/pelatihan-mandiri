@@ -114,7 +114,7 @@ class UserController extends Controller
     {
         // validasi request password sebelum kita masukan kedalam database.
         $request->validate([
-            'password' => 'confirmed|required|min:6',
+            'password' => 'confirmed|required|min:8',
         ]);
 
         // kita lakukan pengecekan apakah password yang lama sesuai dengan password yang kita masukan.
