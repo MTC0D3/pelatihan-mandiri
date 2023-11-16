@@ -37,7 +37,7 @@
                                     @elseif($pendaftaran->status == 'Belum Terverifikasi')
                                         <span class="badge badge-warning">Belum Terverifikasi</span>
                                     @else
-                                        <span class="badge badge-danger">Gagal</span>
+                                        <span class="badge badge-danger">Membatalkan</span>
                                     @endif
                                 </td>
                                 <td>

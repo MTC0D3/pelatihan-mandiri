@@ -34,10 +34,10 @@ class Pendaftaran extends Model
         return $this->belongsTo(Pelatihan::class);
     }
 
-     public function pembayaran()
-    {
-        return $this->hasMany(Pembayaran::class);
-    }
+    //  public function pembayaran()
+    // {
+    //     return $this->hasMany(Pembayaran::class);
+    // }
 
     public function user()
     {

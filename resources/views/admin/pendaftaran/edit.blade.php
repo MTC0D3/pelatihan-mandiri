@@ -54,7 +54,8 @@
                         <option value="Terverifikasi" {{ $pendaftaran->status == 'Terverifikasi' ? 'selected' : '' }}>
                             Terverifikasi
                         </option>
-                        <option value="Gagal" {{ $pendaftaran->status == 'Gagal' ? 'selected' : '' }}>Gagal
+                        <option value="Membatalkan" {{ $pendaftaran->status == 'Membatalkan' ? 'selected' : '' }}>
+                            Membatalkan
                         </option>
                     </x-select>
                 </x-card-form>
